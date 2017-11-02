@@ -3001,6 +3001,86 @@
 
 		}
 
+/* Logos */
+
+	.logos {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		width: 100%;
+		margin: 0 0 0em 0;
+		padding: 0;
+		list-style: none;
+		cursor: default;
+	}
+
+		.logos li {
+			-moz-flex: 1;
+			-webkit-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+			padding: 1em;
+			color: #ffffff;
+			text-align: center;
+		}
+
+			.logos li.style1 {
+				background-color: #efa8b0;
+			}
+
+			.logos li.style2 {
+				background-color: #c79cc8;
+			}
+
+			.logos li.style3 {
+				background-color: #a89cc8;
+			}
+
+			.logos li.style4 {
+				background-color: #9bb2e1;
+			}
+
+			.logos li.style5 {
+				background-color: #8cc9f0;
+			}
+
+			.logos li strong, .logos li b {
+				display: block;
+				font-size: 2em;
+				line-height: 1.1;
+				color: inherit !important;
+				font-weight: 300;
+				letter-spacing: -0.025em;
+			}
+
+			.logos li:first-child {
+				border-top-left-radius: 8px;
+				border-bottom-left-radius: 8px;
+			}
+
+			.logos li:last-child {
+				border-top-right-radius: 8px;
+				border-bottom-right-radius: 8px;
+			}
+
+			.logos li .icon {
+				display: inline-block;
+			}
+
+				.logos li .icon:before {
+					font-size: 2.75rem;
+					line-height: 1.3;
+				}
+
+		@media screen and (max-width: 980px) {
+
+			.logos li strong, .logos li b {
+				font-size: 1.5em;
+			}
+
+		}
+
 /* Spotlight */
 
 	.spotlight {
