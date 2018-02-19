@@ -12,4 +12,4 @@ After the html5up.net template `stellar`.
 
 ### Updating the contents
 
-Contents are handled by reading from the wiki entries. See the [wiki](https://github.com/rutd/RUTD/wiki) for details.
+Contents are handled by reading from the wiki entries. See the [wiki](https://github.com/RU-TD/RU-TD.github.io/wiki) for details.
