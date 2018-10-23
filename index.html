@@ -19,6 +19,21 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
   <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
   <!-- <?php function get_from_github_wiki($filename){$url="https://raw.github.com/wiki/RU-TD/RU-TD.github.io/".$filename;echo file_get_contents($url);}; ?> -->
 
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+</script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML'
+      async></script>
+
 </head>
 
 <body>
@@ -92,8 +107,45 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
           <h2>Project A</h2>
         </header>
 
-        <!-- This is where the ajax request will put the projectA.md contents -->
-        <p id="areaA"></p>
+        <!-- BEGIN CONTENT PROJECT A -->
+        <p class="block">
+          <span class="image right">
+            <img src="images/eso1325a.jpg" alt="ALMA (ESO/NAOJ/NRAO)/Nienke van der Marel">
+            <small class="text-muted">Credit: ESO/L. Calçada</small>
+          </span> Recent surveys have shown an overwhelming diversity of extrasolar planetary
+          systems, prompting the question of how did they form, and whether some may end up looking
+          like our own and being able to sustain
+          life. Hints to answer such fundamental questions may be hidden in the many trends that
+          are slowly emerging from the data. An example are the deserts and peaks in the
+          distribution of giant exoplanets, with clear implications for habitability
+          of systems, given the role played by giants on the delivery of volatiles to terrestrial
+          planets (e.g., Quintana & Lissauer 2014). The environment in which planets form plays a
+          major role in understanding both the variety of exoplanets
+          and the emerging trends. Planets are born out of the dust and gas left over whenever a
+          new star forms: the protoplanetary disk. The initial conditions for planet formation are
+          thus determined by the protoplanetary disks, which evolve
+          and disperse as they give birth to planets.
+        </p>
+        <p class="block">
+          <span class="image left">
+            <img src="images/eso1325d.jpg" alt="ALMA (ESO/NAOJ/NRAO)/Nienke van der Marel">
+            <small class="text-muted">ALMA (ESO/NAOJ/NRAO)/Nienke van der Marel</small>
+          </span>TDs are only now really becoming spatially resolvable thanks to facilities like
+          ALMA and VLT - SPHERE, making their study a timely and urgent task. Only understanding
+          the disk evolution and the planet-disk
+          interactions allow the large body of existing and planned observations to be exploited to
+          answer more complex questions like the formation of planetary systems capable to host
+          life. This requires a focussed effort from several communities
+          to devise a multi-pronged strategy to approach to tackle the problem. Specifically,
+          multiwavelength observations of disks at different stages of evolution together with
+          exoplanet and disk statistics should be used to constrain a concerted
+          theoretical modelling effort including the hydrodynamics of the dust and gas component of
+          disks, with and without planets, joint to chemical and radiative transfer calculations,
+          particularly of the surface layers and winds of disks
+          in (or just before) the transition phase. This is the motivation for the Research Unit.
+        </p>
+
+        <!-- END CONTENT PROJECT A -->
 
       </section>
 
@@ -103,9 +155,68 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
           <h2>Project B</h2>
         </header>
 
-        <!-- This is where the ajax request will put the projectB.md contents -->
-        <p id="areaB"></p>
-
+        <!-- BEGIN CONTENT PROJECT B -->
+        <p>
+          <table summary="Overview Table Numerics" style="width:100%">
+            <thead>
+              <tr>
+                <th scope="col">Parameter</th>
+                <th scope="col">Value</th>
+                <th scope="col">Units</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="5"><em>Overview of the code details used to perform the numerical
+                    analysis of Transition Discs presented in this Project Area.</em></td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <td>Code</td>
+                <td><a href="http://plutocode.ph.unito.it/" target="_blank">PLUTO</a></td>
+                <td><a href="http://adsabs.harvard.edu/abs/2007ApJS..170..228M" target="_blank">Mignone
+                    et al., 2007</a></td>
+              </tr>
+              <tr>
+                <td>Coordinate system</td>
+                <td>2D spherical</td>
+                <td>$r - \theta$</td>
+              </tr>
+              <tr>
+                <td>Physical range</td>
+                <td>$0.33$-$1000$</td>
+                <td>au</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>$0.005$-$\pi/2$ </td>
+                <td>rad</td>
+              </tr>
+              <tr>
+                <td>Numerical resolution</td>
+                <td>$412$</td>
+                <td>log spaced (l+)</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>$160$ </td>
+                <td>log spaced (l-)</td>
+              </tr>
+              <tr>
+                <td>$\log_{10}{L_\mathrm{X}}$</td>
+                <td>$28.3, 29.3, 29.8, 30.3, 31.3, 31.8$</td>
+                <td>erg/s</td>
+              </tr>
+              <tr>
+                <td>Inner hole radii</td>
+                <td>$0,4.6,14.1,21.2,30.3$</td>
+                <td>au</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <!-- END CONTENT PROJECT A -->
       </section>
 
       <!-- Third Project -->
@@ -114,8 +225,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
           <h2>Project C</h2>
         </header>
 
-        <!-- This is where the ajax requeest will put the members.md contents -->
-        <p id="areaC"></p>
+        <!-- BEGIN CONTENT PROJECT C -->
+        <!-- END CONTENT PROJECT C -->
 
       </section>
       <!-- Fourth Project -->
@@ -124,8 +235,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
           <h2>Project D</h2>
         </header>
 
-        <!-- This is where the ajax requeest will put the members.md contents -->
-        <p id="areaD"></p>
+        <!-- BEGIN CONTENT PROJECT D -->
+        <!-- END CONTENT PROJECT D -->
 
       </section>
 
@@ -165,71 +276,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
   <script src="assets/js/util.js"></script>
   <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
   <script src="assets/js/main.js"></script>
-
-
-  <script>
-    //var url = "https://raw.github.com/wiki/RU-TD/RU-TD.github.io/members.md";
-
-    // Fill PROJECT A
-    $.ajax({
-      type: 'GET',
-      dataType: 'text', //use jsonp data type in order to perform cross domain ajax
-      crossDomain: true,
-      url: "https://raw.github.com/wiki/RU-TD/RU-TD.github.io/projectA.md",
-      success: function(responseData, textStatus, jqXHR) {
-        //alert(responseData);
-        $('#areaA').html(responseData);
-      },
-      error: function(responseData, textStatus, errorThrown) {
-        console.log('POST failed.');
-      }
-    });
-
-    // Fill PROJECT B
-    $.ajax({
-      type: 'GET',
-      dataType: 'text', //use jsonp data type in order to perform cross domain ajax
-      crossDomain: true,
-      url: "https://rawgit.com/wiki/RU-TD/RU-TD.github.io/projectB.md",
-      success: function(responseData, textStatus, jqXHR) {
-        //alert(responseData);
-        $('#areaB').html(responseData);
-      },
-      error: function(responseData, textStatus, errorThrown) {
-        console.log('POST failed.');
-      }
-    });
-
-    // Fill PROJECT C
-    $.ajax({
-      type: 'GET',
-      dataType: 'text', //use jsonp data type in order to perform cross domain ajax
-      crossDomain: true,
-      url: "https://rawgit.com/wiki/RU-TD/RU-TD.github.io/projectC.md",
-      success: function(responseData, textStatus, jqXHR) {
-        //alert(responseData);
-        $('#areaC').html(responseData);
-      },
-      error: function(responseData, textStatus, errorThrown) {
-        console.log('POST failed.');
-      }
-    });
-
-    // Fill PROJECT D
-    $.ajax({
-      type: 'GET',
-      dataType: 'text', //use jsonp data type in order to perform cross domain ajax
-      crossDomain: true,
-      url: "https://rawgit.com/wiki/RU-TD/RU-TD.github.io/projectD.md",
-      success: function(responseData, textStatus, jqXHR) {
-        //alert(responseData);
-        $('#areaD').html(responseData);
-      },
-      error: function(responseData, textStatus, errorThrown) {
-        console.log('POST failed.');
-      }
-    });
-  </script>
 
 
 </body>
