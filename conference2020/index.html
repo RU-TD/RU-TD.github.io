@@ -222,6 +222,7 @@ $.ajax({
 
 
         var items = response.items;
+        console.log(items);
         for(var i=0;i<items.length;i++){
             var txt = items[i].summary;
             date_start = new Date(items[i].start.dateTime);
