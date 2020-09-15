@@ -11,6 +11,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <script src="js/jquery-3.5.1.min.js"></script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -31,7 +32,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">RUTD Conference 2020</a>
+						<a href="index.php" class="logo">RUTD Conference 2020</a>
 					</header>
 
 				<!-- Nav -->
@@ -143,6 +144,117 @@
 									<p>The conference starts on Wednesday, October 7th, at 9 am and ends on Friday, October 9th, at around 5 pm.<br>
 The detailed schedule will be announced later.
 </p>
+
+<div id="tab_frame"></div>
+
+<script>
+var mykey = 'AIzaSyBwGpZVszHcBLfQJrOW6GNCbG2ugQ17bnY'; // typically like Gtg-rtZdsreUr_fLfhgPfgff
+var calendarid = '17vsl634andsg6is5sdmjcrbjk@group.calendar.google.com';
+
+function fillTab(tab, nrows, ncols){
+    for(var i=0;i<nrows;i++){
+        var row = tab.insertRow(-1);
+        for(var j=0;j<ncols;j++){
+            var cell = row.insertCell(j);
+        }
+    }
+}
+
+
+function getHHMM(d){
+    hrs = d.getHours();
+    hrs = ("0" + hrs).slice(-2);
+    mns = d.getMinutes();
+    mns = ("0" + mns).slice(-2);
+    return hrs + ":" + mns;
+}
+
+
+function newEventRow(tab, dstart, dend, text, irow=-1){
+    var row = tab.insertRow(irow);
+
+    if(text.includes("BREAK") || text.includes("LUNCH")){
+        row.setAttribute("bgcolor", "#2e3436");
+        row.setAttribute("style", "color: #ffffff;");
+    }else{
+        row.setAttribute("bgcolor", "#e9b96e");
+    }
+
+    var cell = row.insertCell(0);
+    cell.setAttribute("width", "150px");
+    let newText = document.createTextNode("\u00A0" + getHHMM(dstart) + "-" + getHHMM(dend));
+    cell.appendChild(newText);
+
+    cell = row.insertCell(1);
+    newText = document.createTextNode(text);
+    cell.appendChild(newText);
+}
+
+function setText(tab, irow, jcol, text){
+    tab.rows[irow].cells[jcol].innerHTML = text;
+}
+
+$.ajax({
+    type: 'GET',
+    url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarid+ '/events?key=' + mykey),
+    dataType: 'json',
+    async: true,
+    success: function (response) {
+
+        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+        var dates = [[]];
+        for(var i=1;i<6;i++){
+            var tab = document.createElement('table');
+            tab.setAttribute("id", "tab" + i);
+            document.getElementById('tab_frame').appendChild(tab);
+
+            var row = tab.insertRow(-1);
+            row.setAttribute("bgcolor", "#2e3436");
+            row.setAttribute("style", "font-weight:bold; color: #ffffff;");
+            cell = row.insertCell(0);
+            cell = row.insertCell(1);
+            newText = document.createTextNode(days[i] + ", October " + (4+i));
+            cell.appendChild(newText);
+
+            dates.push([0]);
+
+        }
+
+
+        var items = response.items;
+        for(var i=0;i<items.length;i++){
+            var txt = items[i].summary;
+            date_start = new Date(items[i].start.dateTime);
+            date_end = new Date(items[i].end.dateTime);
+            var jday = date_start.getDay();
+
+            udate = date_start.getTime();
+            dates[jday].push(udate);
+
+            dates[jday].sort();
+
+            irow = dates[jday].indexOf(udate);
+
+            var tbl = document.getElementById("tab" + jday);
+            newEventRow(tbl, date_start, date_end, txt, irow);
+        }
+
+        for(var i=1;i<6;i++){
+            var tbl = document.getElementById("tab" + i);
+            row = tbl.insertRow(-1);
+            row.setAttribute("bgcolor", "#2e3436");
+            row.setAttribute("height", "3px");
+            row.insertCell(0);
+            row.insertCell(1);
+        }
+
+    },
+    error: function (response) {
+        //tell that an error has occurred
+    }
+});
+</script>
+
 								<!--<ul class="actions special">
 									<li><a href="#" class="button large">Full Story</a></li>
 								</ul>-->
