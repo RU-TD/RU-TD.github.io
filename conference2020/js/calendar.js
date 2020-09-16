@@ -27,25 +27,24 @@ function newEventRow(tab, dstart, dend, text, irow=-1){
     speaker_text = text.split(" - ", 2)[0];
     title_text = text.split(" - ", 2)[1];
 
-    // create cell with speaker
-    cell = row.insertCell(1);
-    cell.setAttribute("width", "200px");
-    newText = document.createTextNode(speaker_text);
-    cell.appendChild(newText);
-
     // different format for BREAK
     if(text.includes("BREAK")){
         row.setAttribute("bgcolor", "#2e3436");
         row.setAttribute("style", "color: #ffffff;");
-        title_text = "";
+        title_text = "<i class=\"fas fa-coffee\"></i> BREAK";
+        speaker_text = "";
     }else{
         row.setAttribute("bgcolor", "#ff0000");
     }
 
+    // create cell with speaker
+    cell = row.insertCell(1);
+    cell.setAttribute("width", "200px");
+    cell.innerHTML = speaker_text;
+
     // create cell with title
     cell = row.insertCell(2);
-    newText = document.createTextNode(title_text);
-    cell.appendChild(newText);
+    cell.innerHTML = title_text;
 }
 
 //read from google calendar
