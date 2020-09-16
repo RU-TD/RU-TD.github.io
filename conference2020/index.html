@@ -144,7 +144,14 @@
                                 <a name="programme"></a>
 								<header class="major">
 									<h2>Programme</h2>
+
                                     <div id="tab_frame"></div>
+ 
+                                    <p id="timeCEST"></p>
+
+                                    <script>
+                                        document.getElementById('timeCEST').innerHTML = "Time in CEST<br>Current time: " + Date(Date.now()).toString();
+                                    </script>
 
                                     <script src="js/calendar.js"></script>
 
