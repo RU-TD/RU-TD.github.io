@@ -413,7 +413,9 @@ for planet population synthesis simulations.
                                     <p id="timeCEST"></p>
 
                                     <script>
+                                      window.setInterval(function(){
                                         document.getElementById('timeCEST').innerHTML = "Time in CEST. Current time: " + Date(Date.now()).toString();
+					}, 1000);
                                     </script>
 
                                     <!--<script src="js/calendar.js"></script>-->
